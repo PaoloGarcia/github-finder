@@ -42,7 +42,15 @@ class Search extends Component {
                     />
                     <input type="submit" value="Search" className="btn btn-dark btn-block"/>
                 </form>
-                {showCleanBtn && <button className="btn btn-light btn-block" onClick={cleanUsers}>Clear</button>}
+                {
+                    showCleanBtn && 
+                    <button 
+                        className="btn btn-light btn-block"
+                        onClick={cleanUsers}
+                    >
+                        Clear
+                    </button>
+                }
             </>
         );
     }

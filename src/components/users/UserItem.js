@@ -16,9 +16,10 @@ function UserItem({ user: { avatar_url, login, html_url } }) {
                     href={html_url}
                     target="_blank" 
                     className="btn btn-dark btn-sm my1"
-                    rel="noopener noreferrer">
+                    rel="noopener noreferrer"
+                >
                         More
-                    </a>
+                </a>
             </div>
         </div>
     );
