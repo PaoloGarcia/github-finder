@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// redux
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 import axios from 'axios';
 
 // components
@@ -8,6 +11,7 @@ import Navbar from './components/layout/Navbar';
 import Alert from './components/layout/Alert';
 import Search from './components/search/Search';
 import Users from './components/users/Users';
+import About from './components/pages/About';
 
 class App extends Component {
     constructor(props) {
@@ -19,21 +23,12 @@ class App extends Component {
         };
     }
 
-    // fetchUsers = async () => {
-    //     this.setState({ isLoading: true });
-    //     const res = await axios.get(`https://api.github.com/users?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
-    //     this.setState({ users: res.data, isLoading: false });
-    // };
-
     searchUsers = async searchText => {
+        const params = `?q=${searchText}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`;
         this.setState({ isLoading: true });
-        const res = await axios.get(`https://api.github.com/search/users?q=${searchText}&client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`);
+        const res = await axios.get(`https://api.github.com/search/users${params}`);
         this.setState({ users: res.data.items, isLoading: false });
     };
-
-    // componentDidMount() {
-    //     this.fetchUsers();
-    // }
 
     cleanUsers = () => this.setState({ users: [], isLoading: false });
 
@@ -48,19 +43,28 @@ class App extends Component {
         const { alert, users, isLoading } = this.state;
 
         return (
-            <div className="App">
-                <Navbar />
-                <div className="container">
-                    <Alert alert={alert} />
-                    <Search
-                        cleanUsers={this.cleanUsers}
-                        searchUsers={this.searchUsers}
-                        setAlert={this.setAlert}
-                        showCleanBtn={users.length > 0 ? true : false}
-                    />
-                    <Users users={users} isLoading={isLoading} />
+            <BrowserRouter>
+                <div className="App">
+                    <Navbar />
+                    <div className="container">
+                        <Switch>
+                            <Route exact path="/" render={() =>
+                                <>
+                                    <Alert alert={alert} />
+                                    <Search
+                                        cleanUsers={this.cleanUsers}
+                                        searchUsers={this.searchUsers}
+                                        setAlert={this.setAlert}
+                                        showCleanBtn={users.length > 0 ? true : false}
+                                    />
+                                    <Users users={users} isLoading={isLoading} />
+                                </>
+                            } />
+                            <Route exact path="/about" component={About} />
+                        </Switch>
+                    </div>
                 </div>
-            </div>
+            </BrowserRouter>
         );
     }
 }
