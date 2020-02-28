@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { Link } from "react-router-dom";
+
 function UserItem({ user: { avatar_url, login, html_url } }) {
     return (
         <div className="card text-center">
@@ -12,14 +14,13 @@ function UserItem({ user: { avatar_url, login, html_url } }) {
             />
             <h3>{login}</h3>
             <div>
-                <a 
-                    href={html_url}
-                    target="_blank" 
+                <Link 
+                    to={`/users/${login}`}
                     className="btn btn-dark btn-sm my1"
                     rel="noopener noreferrer"
                 >
                         More
-                </a>
+                </Link>
             </div>
         </div>
     );
