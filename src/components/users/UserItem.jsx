@@ -14,15 +14,6 @@ function UserItem({ user: { avatar_url, login, html_url } }) {
             />
             <h3>{login}</h3>
             <div>
-                {/* <a 
-                    href={html_url}
-                    target="_blank" 
-                    className="btn btn-dark btn-sm my1"
-                    rel="noopener noreferrer"
-                    onClick={() => getUser(login)}
-                >
-                        More
-                </a> */}
                 <Link 
                     to={`/users/${login}`}
                     className="btn btn-dark btn-sm my1"
