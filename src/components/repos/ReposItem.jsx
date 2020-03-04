@@ -1,0 +1,25 @@
+import React from "react";
+import PropTypes from "prop-types";
+
+function ReposItem({ repo }) {
+    return (
+        <div className="card">
+            <h3>
+                <a 
+                    href={repo.html_url}
+                    alt="repo name"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {repo.name}
+                </a>
+            </h3>
+        </div>
+    );
+}
+
+ReposItem.propTypes = {
+    repo: PropTypes.object.isRequired,
+};
+
+export default ReposItem;
