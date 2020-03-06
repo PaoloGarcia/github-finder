@@ -1,5 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+
+// context
+import GithubContext from "../../context/github/GithubContext";
 
 // components
 import UserItem from './UserItem';
@@ -11,7 +13,10 @@ const usersStyle = {
     gridGap: '1rem',
 };
 
-function Users({ isLoading, users }) {
+function Users() {
+    const githubContext = useContext(GithubContext);
+    const { isLoading, users } = githubContext;
+
     if (isLoading) {
         return <Spinner />
     }
@@ -26,10 +31,5 @@ function Users({ isLoading, users }) {
         </div>
     );
 }
-
-Users.propTypes = {
-    isLoading: PropTypes.bool.isRequired,
-    users: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default Users;
