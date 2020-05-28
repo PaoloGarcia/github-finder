@@ -1,10 +1,8 @@
 import React, { useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 
 // context
 import GithubContext from "../../context/github/GithubContext";
-
-// router
-import { Link } from "react-router-dom";
 
 // components
 import Spinner from "../layout/Spinner";
@@ -26,36 +24,18 @@ function User({ match: { params } }) {
 
     const {
         login,
-        // id,
-        // node_id,
         avatar_url,
-        // gravatar_id,
-        // url,
         html_url,
-        // followers_url,
-        // following_url,
-        // gists_url,
-        // starred_url,
-        // subscriptions_url,
-        // organizations_url,
-        // repos_url,
-        // events_url,
-        // received_events_url,
-        // type,
-        // site_admin,
         name,
         company,
         blog,
         location,
-        // email,
         hireable,
         bio,
         public_repos,
         public_gists,
         followers,
         following,
-        // created_at,
-        // updated_at,
     } = user;
 
     return (

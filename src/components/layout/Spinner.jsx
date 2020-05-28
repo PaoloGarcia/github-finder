@@ -10,15 +10,7 @@ const spinnerStyle = {
 };
 
 function Spinner() {
-    return (
-        <>
-            <img 
-                src={spinner}
-                alt="loading..."
-                style={spinnerStyle}
-            />
-        </>
-    );
+    return  <img src={spinner} alt="loading..." style={spinnerStyle} />;
 }
 
 export default Spinner;

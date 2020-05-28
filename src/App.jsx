@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 
 // components
-import Routes from "./components/routes/Routes";
+import Routes from './components/routes/Routes';
 
 // context
-import GithubState from "./context/github/GithubState";
-import AlertState from "./context/alert/AlertState";
+import AlertState from './context/alert/AlertState';
+import GithubState from './context/github/GithubState';
 
 function App() {
     return (

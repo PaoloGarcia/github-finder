@@ -23,11 +23,7 @@ function Users() {
 
     return (
         <div style={usersStyle}>
-            {
-                users.map(user => (
-                    <UserItem key={user.id} user={user} />
-                ))
-            }
+            {users.map(user => <UserItem key={user.id} user={user} />)}
         </div>
     );
 }

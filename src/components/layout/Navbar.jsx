@@ -1,7 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-
-// router
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Navbar({ icon, title }) {

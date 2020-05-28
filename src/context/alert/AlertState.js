@@ -1,4 +1,6 @@
 import React, { useReducer } from "react";
+
+// context
 import AlertContext from "./AlertContext";
 import AlertReducer from "./AlertReducer";
 import { SET_ALERT, REMOVE_ALERT } from "../types";
@@ -20,7 +22,6 @@ function AlertState(props) {
     };
 
     // remove alert
-
     const value = {
         alert: state,
         setAlert

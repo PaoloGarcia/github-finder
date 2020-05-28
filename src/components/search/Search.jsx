@@ -12,9 +12,10 @@ function Search() {
 
     const [ text, setText ] = useState("");
 
-    const onChangeInput = e => setText(e.target.value);
+    const onChangeInput = (e) =>
+        setText(e.target.value);
 
-    const onSubmitSearch = e => {
+    const onSubmitSearch = (e) => {
         e.preventDefault();
         if (text === "") {
             setAlert('Please type a user', 'light');
